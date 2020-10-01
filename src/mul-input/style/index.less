@@ -1,0 +1,54 @@
+@import '../../style/themes/index.less';
+
+@mlin-prefix-cls: ~'@{react-clt-prefix}-mul-input';
+
+.@{mlin-prefix-cls} {
+  display: inline-block;
+  overflow: auto;
+  position: relative;
+  box-sizing: border-box;
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  width: @mul-input-width;
+  height: @mul-input-height;
+  padding: @mul-input-padding;
+  color: @mul-input-text-color;
+  font-size: @mul-input-font-size;
+  line-height: 1.5;
+  background-color: @mul-input-background;
+  border: @mul-input-border;
+  border-radius: @mul-input-border-radius;
+  transition: all @animation-duration-slow;
+  cursor: text;
+  &-rect {
+    display: inline-block;
+    border: @mul-input-rect-border;
+    padding: @mul-input-rect-padding;
+    border-radius: @border-radius-base;
+    background: @mul-input-rect-background;
+    margin: @mul-input-rect-margin;
+    vertical-align: top;
+    &-suffix {
+      margin-left: 3px;
+      color: @mul-input-rect-text-color;
+      &:hover {
+        color: @mul-input-rect-text-hover-color;
+      }
+    }
+  }
+  input {
+    width: @mul-input-input-width;
+    margin: @mul-input-input-margin;
+    padding: @mul-input-input-padding;
+    vertical-align: top;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+}
+.has-error {
+  .@{mlin-prefix-cls} {
+    border-color: @mul-input-error;
+  }
+}

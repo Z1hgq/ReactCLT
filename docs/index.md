@@ -37,5 +37,5 @@ npm start
 
 ```js
 // 示例
-export { default as Image } from './image';
+export { default as MulInput } from './mul-input';
 ```
