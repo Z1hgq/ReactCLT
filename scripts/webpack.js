@@ -8,6 +8,33 @@ const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require(path.join(__dirname, 'themes', 'dark-vars'));
 const compactVars = require('./themes/compact-vars');
 
+// noParse still leave `require('./locale' + name)` in dist files
+// ignore is better: http://stackoverflow.com/q/25384360
+function ignoreMomentLocale(webpackConfig) {
+  delete webpackConfig.module.noParse;
+  webpackConfig.plugins.push(
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+  );
+}
+
+function addLocales(webpackConfig) {
+  let packageName = 'react-clt-with-locales';
+  if (webpackConfig.entry['react-clt.min']) {
+    packageName += '.min';
+  }
+  webpackConfig.entry[packageName] = './index-with-locales.js';
+  webpackConfig.output.filename = '[name].js';
+}
+
+function externalMoment(config) {
+  config.externals.moment = {
+    root: 'moment',
+    commonjs2: 'moment',
+    commonjs: 'moment',
+    amd: 'moment',
+  };
+}
+
 function injectWarningCondition(config) {
   config.module.rules.forEach(rule => {
     // Remove devWarning if needed
@@ -64,6 +91,9 @@ webpackConfig.forEach(config => {
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
+    ignoreMomentLocale(config);
+    externalMoment(config);
+    addLocales(config);
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
     // use esbuild
