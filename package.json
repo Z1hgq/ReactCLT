@@ -1,5 +1,5 @@
 {
-  "name": "reactCLT",
+  "name": "rclt",
   "version": "1.0.0",
   "description": "React Components Library Template",
   "scripts": {
@@ -17,9 +17,11 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "typings": "lib/index.d.ts",
+  "unpkg": "dist/rclt.min.js",
   "files": [
     "lib",
-    "es"
+    "es",
+    "dist"
   ],
   "license": "MIT",
   "author": "Z1hgq",
@@ -31,7 +33,7 @@
     "react-components",
     "template"
   ],
-  "siteOutputName": "reactCLT",
+  "siteOutputName": "rclt",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },

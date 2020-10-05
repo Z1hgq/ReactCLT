@@ -22,11 +22,11 @@ export default {
     [
       'babel-plugin-import',
       {
-        libraryName: 'reactCLT',
+        libraryName: 'rclt',
         libraryDirectory: 'es',
         style: true, // 请勿修改此配置
       },
-      'reactCLT',
+      'rclt',
     ],
   ],
   resolve: {

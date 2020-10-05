@@ -5,7 +5,7 @@ order: 2
 
 ## 更新日志
 
-`reactCLT`严格遵循 [Semantic Versioning 2.0.0](https://semver.org/lang/zh-CN/) 语义化版本规范。
+`rclt`严格遵循 [Semantic Versioning 2.0.0](https://semver.org/lang/zh-CN/) 语义化版本规范。
 
 ### 1.0.1
 

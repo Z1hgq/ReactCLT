@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'antd';
-import { MulInput } from 'reactCLT';
+import { MulInput } from 'rclt';
 
 const validateEmails = (rule, value, callback) => {
   if (!value) {

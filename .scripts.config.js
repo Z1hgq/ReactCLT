@@ -12,10 +12,10 @@ module.exports = {
 }`;
 }
 
-// We need compile additional content for reactCLT user
+// We need compile additional content for rclt user
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './lib'))) {
-    // 为 dist/reactCLT.less 编译入口文件
+    // 为 dist/rclt.less 编译入口文件
     const componentsPath = path.join(process.cwd(), 'src');
     let componentsLessContent = '';
     // Build components in one file: lib/style/components.less
@@ -40,14 +40,14 @@ function finalizeCompile() {
 }
 
 function buildThemeFile(theme, vars) {
-  // Build less entry file: dist/reactCLT.${theme}.less
+  // Build less entry file: dist/rclt.${theme}.less
   if (theme !== 'default') {
     fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `reactCLT.${theme}.less`),
+      path.join(process.cwd(), 'dist', `rclt.${theme}.less`),
       `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
     );
     // eslint-disable-next-line no-console
-    console.log(`Built a entry less file to dist/reactCLT.${theme}.less`);
+    console.log(`Built a entry less file to dist/rclt.${theme}.less`);
   } else {
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', `default-theme.js`),
@@ -77,9 +77,9 @@ function buildThemeFile(theme, vars) {
 
 function finalizeDist() {
   if (fs.existsSync(path.join(__dirname, './dist'))) {
-    // Build less entry file: dist/reactCLT.less
+    // Build less entry file: dist/rclt.less
     fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'reactCLT.less'),
+      path.join(process.cwd(), 'dist', 'rclt.less'),
       '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
     );
     // eslint-disable-next-line no-console
@@ -88,7 +88,7 @@ function finalizeDist() {
       `const defaultTheme = require('./default-theme.js');\n`,
     );
     // eslint-disable-next-line no-console
-    console.log('Built a entry less file to dist/reactCLT.less');
+    console.log('Built a entry less file to dist/rclt.less');
     buildThemeFile('default', defaultVars);
     buildThemeFile('dark', darkVars);
     buildThemeFile('compact', compactVars);
@@ -97,7 +97,7 @@ function finalizeDist() {
       `
 function getThemeVariables(options = {}) {
   let themeVar = {
-    'hack': \`true;@import "\${require.resolve('reactCLT/lib/style/color/colorPalette.less')}";\`,
+    'hack': \`true;@import "\${require.resolve('rclt/lib/style/color/colorPalette.less')}";\`,
     ...defaultTheme
   };
   if(options.dark) {

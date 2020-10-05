@@ -24,8 +24,8 @@ function ignoreMomentLocale(webpackConfig) {
 }
 
 function addLocales(webpackConfig) {
-  let packageName = 'reactCLT-with-locales';
-  if (webpackConfig.entry['reactCLT.min']) {
+  let packageName = 'rclt-with-locales';
+  if (webpackConfig.entry['rclt.min']) {
     packageName += '.min';
   }
   webpackConfig.entry[packageName] = './index-with-locales.js';
@@ -63,7 +63,7 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
-      config.entry[entryName.replace('reactCLT', `reactCLT.${theme}`)] =
+      config.entry[entryName.replace('rclt', `rclt.${theme}`)] =
         config.entry[entryName];
       delete config.entry[entryName];
     });
