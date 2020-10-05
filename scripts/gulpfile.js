@@ -101,7 +101,7 @@ function compile(modules) {
 function dist(done) {
   rimraf.sync(getProjectPath('dist'));
   process.env.RUN_ENV = 'PRODUCTION';
-  const webpackConfig = require('./webpack');
+  const webpackConfig = require(getProjectPath('webpack.config.js'));
   webpack(webpackConfig, (err, stats) => {
     if (err) {
       console.error(err.stack || err);

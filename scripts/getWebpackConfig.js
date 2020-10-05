@@ -198,12 +198,9 @@ function getWebpackConfig(modules) {
       new CaseSensitivePathsPlugin(),
       new webpack.BannerPlugin(`
 ${pkg.name} v${pkg.version}
-
-Copyright 2015-present, Alipay, Inc.
-All rights reserved.
       `),
       new WebpackBar({
-        name: '🚚  Ant Design Tools',
+        name: '🚚🚚🚚 building 🚚🚚🚚',
         color: '#2f54eb',
       }),
       new CleanUpStatsPlugin(),

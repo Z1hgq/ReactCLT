@@ -65,7 +65,10 @@ export default class LocaleReceiver extends React.Component<
 
 type LocaleComponent = keyof Locale;
 export function useLocaleReceiver<T extends LocaleComponent>(
-  componentName: T,
+  // 这里做了修改 暂时不知道什么意思
+  // error TS2698: Spread types may only be created from object types.
+  // componentName: T,
+  componentName: LocaleComponent,
   defaultLocale?: Locale[T] | Function,
 ): [Locale[T]] {
   const antLocale = React.useContext(LocaleContext);

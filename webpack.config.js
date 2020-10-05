@@ -1,12 +1,18 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
 const path = require('path');
-const getWebpackConfig = require('./getWebpackConfig');
+const getWebpackConfig = require('./scripts/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
-const darkVars = require(path.join(__dirname, 'themes', 'dark-vars'));
-const compactVars = require('./themes/compact-vars');
+const darkVars = require(path.join(
+  __dirname,
+  'scripts',
+  'themes',
+  'dark-vars',
+));
+const compactVars = require('./scripts/themes/compact-vars');
+const { webpack } = getWebpackConfig;
 
 // noParse still leave `require('./locale' + name)` in dist files
 // ignore is better: http://stackoverflow.com/q/25384360
@@ -115,6 +121,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
   processWebpackThemeConfig(webpackCompactConfig, 'compact', compactVars);
 }
+console.log(webpackConfig);
 module.exports = [
   ...webpackConfig,
   ...webpackDarkConfig,
