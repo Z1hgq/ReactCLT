@@ -19,13 +19,5 @@
     },
     "allowSyntheticDefaultImports": true
   },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "es",
-    "dist",
-    "typings",
-    "src/**/__test__"
-  ],
-  "include": ["typings"]
+  "exclude": ["node_modules", "lib", "es", "dist", "typings", "src/**/__test__"]
 }

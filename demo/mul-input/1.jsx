@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MulInput } from 'react-clt';
+import { MulInput } from 'reactCLT';
 
 export default () => {
   const [value, setValue] = useState('123;321;456');

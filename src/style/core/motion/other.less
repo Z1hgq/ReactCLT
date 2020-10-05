@@ -4,8 +4,8 @@
   }
 }
 
-@click-animating-true: ~"[@{react-clt-prefix}-click-animating='true']";
-@click-animating-with-extra-node-true: ~"[@{react-clt-prefix}-click-animating-without-extra-node='true']";
+@click-animating-true: ~"[@{reactCLT-prefix}-click-animating='true']";
+@click-animating-with-extra-node-true: ~"[@{reactCLT-prefix}-click-animating-without-extra-node='true']";
 
 @{click-animating-true},
 @{click-animating-with-extra-node-true} {
@@ -20,7 +20,7 @@ html {
 @click-animating-with-extra-node-true-after: ~'@{click-animating-with-extra-node-true}::after';
 
 @{click-animating-with-extra-node-true-after},
-.@{react-clt-prefix}-click-animating-node {
+.@{reactCLT-prefix}-click-animating-node {
   position: absolute;
   top: 0;
   right: 0;

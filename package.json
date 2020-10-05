@@ -1,5 +1,5 @@
 {
-  "name": "react-clt",
+  "name": "reactCLT",
   "version": "1.0.0",
   "description": "React Components Library Template",
   "scripts": {
@@ -31,7 +31,7 @@
     "react-components",
     "template"
   ],
-  "siteOutputName": "react-clt",
+  "siteOutputName": "reactCLT",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -121,6 +121,7 @@
     "react-dom": "^16.9.0",
     "rimraf": "^3.0.0",
     "rucksack-css": "^1.0.2",
+    "string-replace-loader": "^2.3.0",
     "through2": "^3.0.1",
     "ts-jest": "^25.5.1",
     "ts-loader": "^7.0.3",
