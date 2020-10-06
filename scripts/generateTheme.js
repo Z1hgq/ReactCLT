@@ -1,3 +1,6 @@
+/**
+ * 项目中快速覆盖主题变量使用的脚本文件
+ */
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
