@@ -1,10 +1,10 @@
 {
   "name": "rclt",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "React Components Library Template",
   "scripts": {
     "start": "dumi dev",
-    "release": "npm run compile && dumi build && node build-site.js",
+    "release": "npm run compile && npm run dist && dumi build && node build-site.js",
     "compile": "node scripts/cli/run.js compile",
     "compile:less": "node scripts/cli/run.js compile:less",
     "build": "npm run compile",
@@ -48,7 +48,9 @@
       "prettier --parser=typescript --write"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
