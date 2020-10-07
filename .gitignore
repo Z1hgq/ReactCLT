@@ -25,3 +25,4 @@
 /src/.umi
 /src/**/__snapshots__
 report.html
+package-lock.json
