@@ -3,7 +3,7 @@ group:
   title: 通用组件
   path: /components
 title: MulInput
-order: 4
+order: 5
 ---
 
 # MulInput 多标签输入
