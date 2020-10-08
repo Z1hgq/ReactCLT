@@ -66,3 +66,12 @@ import defaultLocale from '../locale/default';
 ## 使用
 
 <code src="../demo/internal/1.jsx">
+
+## 支持
+
+目前支持以下语言：
+
+| 语言         | 文件名 |
+| ------------ | ------ |
+| 英语（美式） | en_US  |
+| 简体中文     | zh_CN  |

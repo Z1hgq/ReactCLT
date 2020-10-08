@@ -15,7 +15,7 @@ order: 3
 
 4、在`src/style/themes/dark.less`末尾定义组件暗黑主题样式的变量；
 
-5、切勿在组件的代码中引入样式文件；
+5、**切勿**在组件的代码中引入样式文件；
 
 **开发方式参考组件`MulInput`**
 
@@ -27,16 +27,9 @@ order: 3
 
 2、在全局文件中手动引入组件库的样式文件`import 'rclt/dist/rclt.css';`；
 
-3、项目的入口 html 文件中引入`less.min.js`并修改`window.less`变量属性；
+3、项目的入口 html 文件中引入`less.min.js`；
 
-```js
-window.less = {
-  async: false,
-  env: 'production',
-};
-```
-
-4、引入项目代码使用到的 less 文件`xxx.less`；
+4、项目的入口 html 文件中引入项目代码使用到的 less 文件`xxx.less`；
 
 5、在`xxx.less`中重写项目中使用到的组件的 less 变量和样式代码；
 
@@ -78,7 +71,7 @@ generateTheme(options)
 
 最后的生成的文件会输出到`global-var.less`中，在`xxx.less`中引入`global-var.less`。除了`@mul-input-background`，其他的组件样式变量都是编译之后的结果
 
-6、通过`less.modifyVars`来动态修改主题；
+6、通过`window.less.modifyVars`来动态修改主题；
 
 ```js
 window.less.modifyVars({
