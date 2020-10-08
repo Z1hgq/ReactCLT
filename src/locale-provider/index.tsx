@@ -1,12 +1,14 @@
 import * as React from 'react';
 
 import LocaleContext from './context';
+import { MulInputLocale } from '../mul-input';
 
 export const ANT_MARK = 'internalMark';
 
 export interface Locale {
   locale: string;
   global?: Object;
+  MulInput: MulInputLocale;
 }
 
 export interface LocaleProviderProps {
@@ -25,17 +27,10 @@ export default class LocaleProvider extends React.Component<
 
   constructor(props: LocaleProviderProps) {
     super(props);
-
-    console.warn(
-      props._ANT_MARK__ === ANT_MARK,
-      'LocaleProvider',
-      '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
-    );
   }
 
   render() {
     const { locale, children } = this.props;
-
     return (
       <LocaleContext.Provider value={{ ...locale, exist: true }}>
         {children}

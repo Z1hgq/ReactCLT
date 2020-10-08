@@ -1,5 +1,8 @@
 import * as React from 'react';
 import cn from 'classnames';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+
 const { forwardRef, useState, useRef, useEffect } = React;
 
 /**
@@ -59,6 +62,10 @@ const CloseIcon = props => {
   );
 };
 
+export interface MulInputLocale {
+  placeholder?: string;
+}
+
 export type MulInputOnchangeHandler = (
   text: string | undefined,
   arr: string[],
@@ -88,7 +95,7 @@ const MulInput = forwardRef((props: MulInputProps, ref: SpanRef) => {
     style, // 自定义style
     value, // 受控value
     onChange = () => {}, // 输入值的回调函数
-    placeholder = '多个输入用英文分号;分隔', // placeholder
+    placeholder = '', // placeholder
   } = props;
 
   const [tabs, setTabs] = useState<string[]>([]); // 组件上的标签
@@ -194,14 +201,24 @@ const MulInput = forwardRef((props: MulInputProps, ref: SpanRef) => {
           );
         })}
       </span>
-      <input
-        ref={inputEl}
-        value={currentText}
-        onChange={handleInputChange}
-        onBlur={handleInputBlur}
-        onKeyDown={handleKeyDown}
-        placeholder={placeholder}
-      />
+      <LocaleReceiver
+        componentName="MulInput"
+        defaultLocale={defaultLocale.MulInput}
+      >
+        {(locale: MulInputLocale) => {
+          return (
+            <input
+              ref={inputEl}
+              value={currentText}
+              onChange={handleInputChange}
+              onBlur={handleInputBlur}
+              onKeyDown={handleKeyDown}
+              title={placeholder || locale.placeholder}
+              placeholder={placeholder || locale.placeholder}
+            />
+          );
+        }}
+      </LocaleReceiver>
     </span>
   );
 }) as CompoundedComponent;

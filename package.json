@@ -1,6 +1,6 @@
 {
   "name": "rclt",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "React Components Library Template",
   "scripts": {
     "start": "dumi dev",

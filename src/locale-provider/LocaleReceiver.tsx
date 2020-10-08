@@ -72,7 +72,6 @@ export function useLocaleReceiver<T extends LocaleComponent>(
   defaultLocale?: Locale[T] | Function,
 ): [Locale[T]] {
   const antLocale = React.useContext(LocaleContext);
-
   const componentLocale = React.useMemo(() => {
     const locale =
       defaultLocale || defaultLocaleData[componentName || 'global'];

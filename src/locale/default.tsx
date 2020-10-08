@@ -6,6 +6,9 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Please select',
   },
+  MulInput: {
+    placeholder: 'Please use semicolons to separate multiple inputs',
+  },
 };
 
 export default localeValues;
