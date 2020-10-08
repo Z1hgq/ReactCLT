@@ -47,6 +47,8 @@ npm start
 export { default as MulInput } from './mul-input';
 ```
 
+> PS: **主题**和**多语言**功能分别参考`docs/theme.md`和`docs/internal.md`
+
 ### 编译
 
 ```shell
